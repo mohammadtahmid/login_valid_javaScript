@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Js Form Validation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .form-section {
+            width: 50%;
+            margin: 0 auto;
+            background: lightgray;
+        }
+        input[type=text], input[type=password] {
+            margin: 20px;
+            width: 90%;
+            padding: 10px;
+        }
+        input[type=submit] {
+            margin: 20px;
+            width: 90%;
+            padding: 10px;
+            background: teal;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+<h1 id="result" style="text-align: center; background: teal; color: wheat; padding: 20px; margin-bottom: 20px;"></h1>
+<div class="form-section">
+    <form action="" method="POST" name="Myform" onsubmit="formValid(); return false">
+        <input id="name" type="text" name="name" placeholder="Input Name">
+        <input id="email" type="text" name="email" placeholder="Input Email">
+        <input id="password" type="password" name="password" placeholder="Input Password">
+        <input type="submit" name="submit">
+    </form>
+</div>
+<script>
+    function formValid() {
+        var name = document.getElementById("name").value;
+        if (!name) {
+            alert("Please Input Your Name");
+            return false;
+        } else {
+            var showName = " Username is: " + name;
+        }
+
+        var email = document.getElementById("email").value;
+        if (!email) {
+            alert("Please Input Your Email");
+            return false;	
+        } else {
+            var showEmail = "Email is: " + email;
+        }
+
+        var password = document.getElementById("password").value;
+        if (!password) {
+            alert("Please Input Your Strong Password");
+            return false;
+        } else if (password.length < 6) {
+            alert("Password Minimum Digit");
+            return false;
+        } else {
+            var showPassword = "Password is protected";
+        }
+
+        document.getElementById("result").innerHTML = showName + "<br>" + showEmail + "<br>" + showPassword;
+        return false;
+    }
+</script>
+
+
+
+<marquee dir="auto"><small> Create By Tahmid Al Maruf</small></marquee>
+</body>
+</html>
